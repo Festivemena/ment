@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PIC-ME Backend API Documentation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      padding: 20px;
+      background: #f8f9fa;
+      color: #333;
+    }
+    h1, h2 {
+      color: #ff6600;
+    }
+    h3 {
+      color: #008080;
+    }
+    header {
+      text-align: center;
+      background: #008080;
+      color: white;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    section {
+      background: white;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    ul li::before {
+      content: "\2022";
+      color: #ff6600;
+      font-weight: bold;
+      display: inline-block;
+      width: 1em;
+      margin-left: -1em;
+    }
+    pre {
+      background: #272822;
+      color: #f8f8f2;
+      padding: 15px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    footer {
+      text-align: center;
+      padding: 10px;
+      background: #ff6600;
+      color: white;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>PIC-ME Backend API Documentation</h1>
+    <p>PIC-ME is a photography booking platform connecting clients with professional photographers and videographers.</p>
+  </header>
+  
+  <section>
+    <h2>Features</h2>
+    <ul>
+      <li>User Authentication (JWT-based login & registration)</li>
+      <li>Profile Management (Clients & Creatives)</li>
+      <li>AI-driven Photographer Matching</li>
+      <li>Booking & Scheduling System</li>
+      <li>Secure Payment Processing (Stripe/Paystack)</li>
+      <li>Ratings & Reviews</li>
+      <li>Real-time Messaging</li>
+      <li>Push Notifications</li>
+    </ul>
+  </section>
+  
+  <section>
+    <h2>Tech Stack</h2>
+    <ul>
+      <li><strong>Backend:</strong> Node.js, Express.js</li>
+      <li><strong>Database:</strong> MongoDB (Mongoose ORM)</li>
+      <li><strong>Authentication:</strong> JWT & OAuth</li>
+      <li><strong>Payments:</strong> Stripe/Paystack</li>
+      <li><strong>Messaging:</strong> WebSockets, Firebase Cloud Messaging (FCM)</li>
+      <li><strong>Storage:</strong> AWS S3 / Cloudinary</li>
+      <li><strong>Caching:</strong> Redis</li>
+      <li><strong>Logging & Monitoring:</strong> Winston & Prometheus</li>
+    </ul>
+  </section>
+  
+  <section>
+    <h2>API Endpoints</h2>
+    
+    <h3>Authentication</h3>
+    <pre>
+POST /api/auth/register
+POST /api/auth/login
+POST /api/auth/logout
+    </pre>
+    
+    <h3>User Management</h3>
+    <pre>
+GET /api/users/profile/:id
+PUT /api/users/profile/update
+DELETE /api/users/profile/delete
+    </pre>
+    
+    <h3>Booking System</h3>
+    <pre>
+POST /api/bookings/create
+GET /api/bookings/list/:userId
+PUT /api/bookings/update/:id
+DELETE /api/bookings/cancel/:id
+    </pre>
+  </section>
+  
+  <section>
+    <h2>Example: Register User</h2>
+    <h3>Request</h3>
+    <pre>
+{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "password": "password123",
+  "role": "client"
+}
+    </pre>
+    <h3>Response</h3>
+    <pre>
+{
+  "message": "User registered successfully",
+  "user": {
+    "_id": "60f7a5c3e8a1a9b3a8e4b123",
+    "name": "John Doe",
+    "email": "john@example.com",
+    "role": "client"
+  }
+}
+    </pre>
+  </section>
+  
+  <section>
+    <h2>Deployment</h2>
+    <h3>Docker Setup</h3>
+    <pre>
+    docker build -t picme-backend .
+    docker run -p 5000:5000 picme-backend
+    </pre>
+    
+    <h3>Deploy to Heroku</h3>
+    <pre>
+    heroku create picme-backend
+    heroku config:set MONGO_URI=your_mongo_uri JWT_SECRET=your_jwt_secret
+    heroku push origin main
+    </pre>
+  </section>
+  
+  <footer>
+    <p>&copy; 2025 PIC-ME Backend API Documentation</p>
+  </footer>
+</body>
+</html>
