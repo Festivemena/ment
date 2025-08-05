@@ -1,7 +1,7 @@
 {
   "name": "picme-backend",
   "version": "1.0.0",
-  "description": "A comprehensive photography booking platform backend API",
+  "description": "A comprehensive photography booking platform backend API with real-time messaging and referral system",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -29,7 +29,12 @@
     "mongodb",
     "marketplace",
     "creative",
-    "videography"
+    "videography",
+    "websocket",
+    "realtime",
+    "messaging",
+    "referral",
+    "socket.io"
   ],
   "author": {
     "name": "Efemena Festus",
@@ -59,6 +64,7 @@
     "multer": "^2.0.1",
     "nodemailer": "^7.0.2",
     "slugify": "^1.6.6",
+    "socket.io": "^4.7.5",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.0",
     "winston": "^3.11.0",
@@ -76,6 +82,7 @@
     "jest": "^29.7.0",
     "nodemon": "^3.0.1",
     "prettier": "^3.1.0",
+    "socket.io-client": "^4.7.5",
     "supertest": "^6.3.3"
   },
   "jest": {
