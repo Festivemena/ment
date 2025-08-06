@@ -74,7 +74,7 @@
       <li>Profile Management (Clients & Creatives)</li>
       <li>AI-driven Photographer Matching</li>
       <li>Booking & Scheduling System</li>
-      <li>Secure Payment Processing (Stripe/Paystack)</li>
+      <!-- <li>Secure Payment Processing (Stripe/Paystack)</li> -->
       <li>Ratings & Reviews</li>
       <li>Real-time Messaging</li>
       <li>Push Notifications</li>
@@ -87,11 +87,11 @@
       <li><strong>Backend:</strong> Node.js, Express.js</li>
       <li><strong>Database:</strong> MongoDB (Mongoose ORM)</li>
       <li><strong>Authentication:</strong> JWT & OAuth</li>
-      <li><strong>Payments:</strong> Stripe/Paystack</li>
-      <li><strong>Messaging:</strong> WebSockets, Firebase Cloud Messaging (FCM)</li>
+      <!-- <li><strong>Payments:</strong> Stripe/Paystack</li> -->
+      <!-- <li><strong>Messaging:</strong> WebSockets, Firebase Cloud Messaging (FCM)</li>
       <li><strong>Storage:</strong> AWS S3 / Cloudinary</li>
       <li><strong>Caching:</strong> Redis</li>
-      <li><strong>Logging & Monitoring:</strong> Winston & Prometheus</li>
+      <li><strong>Logging & Monitoring:</strong> Winston & Prometheus</li> -->
     </ul>
   </section>
   
@@ -147,21 +147,29 @@ DELETE /api/bookings/cancel/:id
   </section>
   
   <section>
-    <h2>Deployment</h2>
-    <h3>Docker Setup</h3>
+    <h2>Example: Login User</h2>
+    <h3>Request</h3>
     <pre>
-    docker build -t picme-backend .
-    docker run -p 5000:5000 picme-backend
+{
+  "email": "john@example.com",
+  "password": "password123",
+}
     </pre>
-    
-    <h3>Deploy to Heroku</h3>
+    <h3>Response</h3>
     <pre>
-    heroku create picme-backend
-    heroku config:set MONGO_URI=your_mongo_uri JWT_SECRET=your_jwt_secret
-    heroku push origin main
+{
+  "message": "Login successfully",
+  "token": "46f6fhy78788888q55776687fgygy",
+  "user": {
+    "_id": "60f7a5c3e8a1a9b3a8e4b123",
+    "name": "John Doe",
+    "email": "john@example.com",
+    "role": "client"
+  }
+}
     </pre>
   </section>
-  
+
   <footer>
     <p>&copy; 2025 PIC-ME Backend API Documentation</p>
   </footer>

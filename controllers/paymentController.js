@@ -7,6 +7,7 @@ exports.processPayment = async (req, res, next) => {
     const { booking_id, amount, payment_method } = req.body;
     
     // Integrate with your payment gateway (e.g., Stripe) here.
+    // integrate with a local payment system to make it more native to nigerians.
     // For demonstration, we simulate a successful payment.
     const transaction_id = 'txn_' + Date.now();
     

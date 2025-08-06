@@ -1,11 +1,12 @@
+// models/Notification.js
 const mongoose = require('mongoose');
 
 const notificationSchema = new mongoose.Schema({
-  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-  title: { type: String, required: true },
+  user_id: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
   message: { type: String, required: true },
-  type: { type: String, enum: ['deposit', 'withdrawal', 'booking', 'dispute', 'tip'], required: true },
-  isRead: { type: Boolean, default: false },
-}, { timestamps: true });
+  type: { type: String, enum: ['booking_update', 'payment', 'promo'], required: true },
+  read: { type: Boolean, default: false },
+  created_at: { type: Date, default: Date.now },
+});
 
 module.exports = mongoose.model('Notification', notificationSchema);
